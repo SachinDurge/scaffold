@@ -1,15 +1,15 @@
 name: Python application test with Github actions
 on: [push]
-job:
+jobs:
   Build:
-    runs-on ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
     - name: Set up Python 3.8
-      users: actions/setup-python@v1
+      uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    -name: Install dependencies
+    - name: Install dependencies
       run: |
         make install
     - name: Lint with Pylint
